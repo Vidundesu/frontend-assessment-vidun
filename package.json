@@ -1,0 +1,12 @@
+{
+  "scripts": {
+
+    "scss:build": "sass src/scss/main.scss public/style.css --no-source-map --style=compressed",
+    "scss:watch": "sass --watch src/scss/main.scss public/style.css --no-source-map",
+    "build": "npm run scss:build",
+    "dev": "npm run scss:watch"
+  },
+  "devDependencies": {
+    "sass": "^1.89.2"
+  }
+}
