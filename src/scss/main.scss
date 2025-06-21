@@ -1,3 +1,6 @@
 @use 'abstracts/variables' as v;
 @use 'abstracts/mixins' as m;
 @use 'components/rating-card';
+@use 'sections/home.scss';
+@use 'sections/about.scss';
+@use 'index.scss';

@@ -3,10 +3,30 @@
 
 $breakpoints: (
   'mobile': 480px,
-  'tablet': 768px,
-  'desktop': 1024px
+  'tablet': 1024px,
+  'desktop': 1500px
 ) !default;
 
+$heightpoints: (
+  'mobile': 800px,
+  'tablet': 1024px,
+  'desktop': 1500px
+) !default;
+
+
+@mixin respond-to-height($heightpoint) {
+  @if map.has-key($heightpoints, $heightpoint) {
+    @media (max-width: map.get($heightpoints, $heightpoint)) {
+      @content;
+    }
+  } @else {
+    @warn "Unknown breakpoint `#{$heightpoint}`";
+  }
+}
+
+@mixin responsive-font($min-size, $max-size) {
+  font-size: clamp(#{$min-size}, 2vw, #{$max-size});
+}
 
 @mixin respond-to($breakpoint) {
   @if map.has-key($breakpoints, $breakpoint) {
@@ -18,14 +38,43 @@ $breakpoints: (
   }
 }
 
-@mixin responsive-font($min-size, $max-size) {
-  font-size: clamp(#{$min-size}, 2vw, #{$max-size});
+@mixin title-xl($color: #000743, $weight: 700, $align: center) {
+  font-size: clamp(20px, 5vw, 65px);
+  line-height: 110%;
+  font-weight: $weight;
+  color: $color;
+  margin:1rem;
+  font-family: 'DM Sans', sans-serif;
+  text-align: $align;
 }
 
-@mixin title-xl($color: #0f172a) {
-  font-size: 60px;
-  font-weight: 700;
-  font-family: 'DM Sans', sans-serif;
-  text-align: center;
+
+
+@mixin subtitle($color: #000743){
+  font-size: clamp(25px, 1vw , 35px);
   color: $color;
+  font-weight:400;
+  font-family: 'DM Sans',  sans-serif;
+  text-align: center;
 }
+@mixin button-primary($text-color: #ffffff, $bg-color: #f43f5e, $hover-color: #e11d48) {
+
+  margin-top:1rem;
+  padding: clamp(0.5rem, 1.5vw, 1rem) clamp(1rem, 3vw, 1.75rem);
+  background-color: $bg-color;
+  color: $text-color;
+  font-weight: 600;
+  font-size: clamp(10px, 1vw , 20px);
+  border: none;
+  border-radius: clamp(6px, 1vw, 8px);
+  cursor: pointer;
+  transition: background 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: clamp(0.5rem, 1vw, 1rem);
+
+  &:hover {
+    background-color: $hover-color;
+  }
+}
+

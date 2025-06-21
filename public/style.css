@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
 .backdrop {
   display: flex;
   justify-content: center;
@@ -74,4 +75,237 @@
   .backdrop .rating-card .card-rating {
     padding: 0.5rem;
   }
+}
+
+.landing {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 125svh;
+}
+
+.landing-heading {
+  flex: 1.5;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.landing h1 {
+  font-size: clamp(20px, 5vw, 65px);
+  line-height: 110%;
+  font-weight: 700;
+  color: #000743;
+  margin: 1rem;
+  font-family: "DM Sans", sans-serif;
+  text-align: center;
+}
+
+.home-subtitle {
+  width: 50%;
+}
+
+.home-subtitle h2 {
+  font-size: clamp(25px, 1vw, 35px);
+  color: #000743;
+  font-weight: 400;
+  font-family: "DM Sans", sans-serif;
+  text-align: center;
+}
+
+.companies-grid-1, .companies-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  gap: 1rem;
+  place-items: center;
+  margin: auto;
+  padding: 1rem;
+}
+
+.grid-box {
+  width: clamp(1rem, 10vw, 8rem);
+  height: clamp(1rem, 10vw, 8rem);
+  background: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+}
+.grid-box img {
+  width: 50%;
+  height: 50%;
+  object-fit: contain;
+}
+.grid-box:hover {
+  transform: scale(1.05);
+}
+
+.logo-box:nth-child(1) {
+  grid-column: 3;
+  grid-row: 1;
+}
+
+.logo-box:nth-child(2) {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+.logo-box:nth-child(3) {
+  grid-column: 1;
+  grid-row: 3;
+}
+
+.logo-box:nth-child(4) {
+  grid-column: 3;
+  grid-row: 3;
+}
+
+.logo-box:nth-child(5) {
+  grid-column: 2;
+  grid-row: 4;
+}
+
+.logo-box-2:nth-child(1) {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.logo-box-2:nth-child(2) {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.logo-box-2:nth-child(3) {
+  grid-column: 2;
+  grid-row: 3;
+}
+
+.logo-box-2:nth-child(4) {
+  grid-column: 3;
+  grid-row: 3;
+}
+
+.logo-box-2:nth-child(5) {
+  grid-column: 3;
+  grid-row: 4;
+}
+
+@media (max-width: 480px) {
+  .landing {
+    display: grid;
+    position: relative;
+    height: 75svh;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+  }
+  .companies-grid-1 {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .landing-heading {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+  }
+  .companies-grid-2 {
+    grid-column: 3;
+    grid-row: 3;
+  }
+  .home-subtitle {
+    display: flex;
+    justify-content: center;
+  }
+  .home-subtitle h2 {
+    width: 75%;
+  }
+}
+@media (max-width: 800px) {
+  .landing h1 {
+    font-size: clamp(20px, 2vw, 40px);
+  }
+}
+.btn button {
+  margin-top: 1rem;
+  padding: clamp(0.5rem, 1.5vw, 1rem) clamp(1rem, 3vw, 1.75rem);
+  background-color: #f43f5e;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: clamp(10px, 1vw, 20px);
+  border: none;
+  border-radius: clamp(6px, 1vw, 8px);
+  cursor: pointer;
+  transition: background 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: clamp(0.5rem, 1vw, 1rem);
+}
+.btn button:hover {
+  background-color: #e11d48;
+}
+
+.about {
+  height: 75svh;
+  width: 100%;
+  background: linear-gradient(60deg, rgb(107, 16, 101), rgb(255, 89, 252));
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.about .container {
+  width: 90%;
+}
+
+.about-heading {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1rem;
+  width: 50%;
+}
+
+.about-heading h1 {
+  font-size: clamp(20px, 5vw, 65px);
+  line-height: 110%;
+  font-weight: 700;
+  color: #fff;
+  margin: 1rem;
+  font-family: "DM Sans", sans-serif;
+  text-align: left;
+}
+
+.about-btn button {
+  margin-top: 1rem;
+  padding: clamp(0.5rem, 1.5vw, 1rem) clamp(1rem, 3vw, 1.75rem);
+  background-color: rgba(255, 255, 255, 0.5);
+  color: #ffffff;
+  font-weight: 600;
+  font-size: clamp(10px, 1vw, 20px);
+  border: none;
+  border-radius: clamp(6px, 1vw, 8px);
+  cursor: pointer;
+  transition: background 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: clamp(0.5rem, 1vw, 1rem);
+}
+.about-btn button:hover {
+  background-color: #e11d48;
+}
+
+html, body {
+  width: 100vw;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
 }

@@ -1,0 +1,146 @@
+@use '../abstracts/variables' as v;
+@use '../abstracts/mixins' as m;
+
+.landing{
+  display:flex;
+  flex-direction: row;
+  justify-content:space-between;
+  align-items:center;
+  height:125svh;
+
+}
+.landing-heading{
+  flex: 1.5;
+  display: flex;
+  flex-direction: column;
+  justify-content:center;
+  align-items:center;
+}
+.landing h1{
+  @include m.title-xl();
+}
+.home-subtitle{
+  width:50%;
+}
+.home-subtitle h2{
+
+  @include m.subtitle();
+}
+.companies-grid-1, .companies-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  gap: 1rem;
+  place-items: center;
+  margin: auto;
+  padding: v.$base-padding;
+}
+.grid-box {
+  width: clamp(1rem, 10vw, 8rem);
+  height: clamp(1rem, 10vw, 8rem);
+  background: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+
+  img {
+    width: 50%;
+    height: 50%;
+    object-fit: contain; // ensures logo is fully visible
+  }
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+
+.logo-box:nth-child(1){
+  grid-column: 3;
+  grid-row: 1;
+}
+.logo-box:nth-child(2){
+  grid-column: 2;
+  grid-row: 2;
+}
+.logo-box:nth-child(3){
+  grid-column: 1;
+  grid-row: 3;
+}
+.logo-box:nth-child(4){
+  grid-column: 3;
+  grid-row: 3;
+}
+.logo-box:nth-child(5){
+  grid-column: 2;
+  grid-row: 4;
+}
+
+.logo-box-2:nth-child(1){
+  grid-column: 2;
+  grid-row: 1;
+}
+.logo-box-2:nth-child(2){
+  grid-column: 1;
+  grid-row: 2;
+}
+.logo-box-2:nth-child(3){
+  grid-column: 2;
+  grid-row: 3;
+}
+.logo-box-2:nth-child(4){
+  grid-column: 3;
+  grid-row: 3;
+}
+.logo-box-2:nth-child(5){
+  grid-column: 3;
+  grid-row: 4;
+}
+
+@include m.respond-to('mobile'){
+  .landing{
+    display:grid;
+    position:relative;
+    height:75svh;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr ;
+  }
+  .companies-grid-1{
+    grid-column:1;
+    grid-row:1;
+  }
+  .landing-heading{
+    margin-top:2rem;
+    display:flex;
+    flex-direction: column;
+    width:100%;
+    justify-content: center;
+    align-items:center;
+    position: absolute;
+  }
+  .companies-grid-2{
+    grid-column:3;
+    grid-row:3;
+  }
+  .home-subtitle{
+    display:flex;
+    justify-content:center;
+  }
+  .home-subtitle h2{
+    width:75%;
+  }
+}
+@include m.respond-to-height('mobile') {
+  .landing h1{
+    @include m.responsive-font(20px, 40px)
+  }
+
+}
+
+.btn button{
+
+  @include m.button-primary()
+}

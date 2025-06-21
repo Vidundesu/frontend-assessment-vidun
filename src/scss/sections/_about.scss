@@ -1,0 +1,32 @@
+@use '../abstracts/variables' as v;
+@use '../abstracts/mixins' as m;
+
+.about{
+  height:75svh;
+  width:100%;
+  background: linear-gradient(
+    60deg,
+    rgba(107, 16, 101, 1),
+    rgba(255, 89, 252, 1)
+  );
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  .container{
+    width:90%;
+  }
+}
+.about-heading{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: v.$base-padding;
+  width:50%;
+}
+.about-heading h1{
+  @include m.title-xl($align:left, $color:#fff);
+}
+.about-btn button{
+  @include m.button-primary($bg-color:rgb(255,255,255, 0.5));
+}
