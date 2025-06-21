@@ -129,7 +129,7 @@
   width: clamp(1rem, 10vw, 8rem);
   height: clamp(1rem, 10vw, 8rem);
   background: white;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
   border-radius: 1rem;
   display: flex;
   align-items: center;
@@ -253,6 +253,8 @@
 }
 
 .about {
+  position: relative;
+  overflow: hidden;
   height: 75svh;
   width: 100%;
   background: linear-gradient(60deg, rgb(107, 16, 101), rgb(255, 89, 252));
@@ -262,6 +264,21 @@
 }
 .about .container {
   width: 90%;
+}
+.about .gradient {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 0;
+  transform: scale(1.5);
+  transform-origin: top right;
+}
+.about .gradient img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+  user-select: none;
 }
 
 .about-heading {
@@ -300,6 +317,10 @@
 }
 .about-btn button:hover {
   background-color: #e11d48;
+}
+
+.testimony {
+  height: 100svh;
 }
 
 html, body {
